@@ -1,0 +1,50 @@
+@mixin breakPoints($size) {
+  @if $size == "sm" {
+    @media (max-width: 576px) {
+      @content;
+    }
+  } @else if $size == "md" {
+    @media (max-width: 768px) {
+      @content;
+    }
+  } @else if $size == "lg" {
+    @media (max-width: 992px) {
+      @content;
+    }
+  } @else if $size == "xl" {
+    @media (max-width: 1200px) {
+      @content;
+    }
+  }
+}
+
+@mixin center($type) {
+  position: absolute;
+  @if $type == "both" {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+  } @else if $type == "x" {
+    left: 50%;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+  } @else if $type == "y" {
+    top: 50%;
+    transform: translatey(-50%);
+    -webkit-transform: translatey(-50%);
+    -moz-transform: translatey(-50%);
+    -ms-transform: translatey(-50%);
+    -o-transform: translatey(-50%);
+  }
+}
+
+@mixin time {
+  transition: 0.3s;
+}

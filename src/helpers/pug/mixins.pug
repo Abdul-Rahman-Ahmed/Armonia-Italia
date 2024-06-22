@@ -1,0 +1,10 @@
+mixin heading (text)
+  h2.head - #{text} -
+
+mixin links (classname)
+  ul(class= `${classname}`)
+    li: a(href= "./index.html") الرئيسية
+    li: a(href= "./pages/menu.html") القائمة
+    li: a(href= "./pages/Booking.html") الحجز
+    li: a(href= "./pages/galary.html") المعرض
+    li: a(href= "./pages/contact-us.html") اتصل بنا

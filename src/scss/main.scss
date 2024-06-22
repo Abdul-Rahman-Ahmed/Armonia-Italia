@@ -1,0 +1,382 @@
+@use "../../src/helpers/sass/variables" as *;
+@use "../../src/helpers/sass/mixin" as *;
+
+body {
+  font-family: "Tajawal", sans-serif;
+  box-sizing: border-box;
+  font-size: 18px;
+  padding: 0;
+  margin: 0;
+}
+
+h2 {
+  padding: 0 0 20px;
+  margin: 0;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.container {
+  padding: 0 100px;
+}
+
+.button {
+  background-color: $green-color;
+  font-weight: bold;
+  color: #fff;
+  width: fit-content;
+  padding: 5px;
+  font-size: 16px;
+  border-radius: 3px;
+  cursor: pointer;
+  @include time;
+}
+
+.button:hover {
+  background-color: $red-color;
+  @include time;
+}
+
+@include breakPoints(lg) {
+  .container {
+    padding: 0 75px;
+  }
+}
+
+@include breakPoints(md) {
+  .container {
+    padding: 0 50px;
+  }
+}
+
+header {
+  position: fixed;
+  z-index: 11;
+  top: 0;
+  width: calc(100% - 200px);
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 250px;
+  .logo {
+    width: 80px;
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .dropmenu {
+    display: none;
+    cursor: pointer;
+    border: solid 2px #000;
+    font-size: 25px;
+    padding: 3px 6px;
+    border-radius: 3px;
+  }
+
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #eee;
+    display: none;
+    .close {
+      background-color: $red-color;
+      color: #fff;
+      cursor: pointer;
+      font-weight: bold;
+      width: 30px;
+      height: 30px;
+      margin: 30px;
+      border-radius: 50%;
+      position: relative;
+      div {
+        @include center("both");
+      }
+    }
+    .menu {
+      @include center(both);
+      text-align: center;
+      li {
+        padding: 3px;
+        a {
+          color: $green-color;
+          text-decoration: none;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+  .navlinks {
+    display: flex;
+    gap: 25px;
+    font-weight: bold;
+    text-align: center;
+    font-size: 20px;
+    li {
+      a {
+        color: $green-color;
+        text-decoration: none;
+        transition: 0.3s;
+      }
+      a:hover {
+        color: $red-color;
+        transition: 0.3s;
+      }
+    }
+  }
+}
+
+@include breakPoints(lg) {
+  header {
+    gap: 0;
+    justify-content: space-between;
+    width: calc(100% - 150px);
+    .navlinks {
+      font-size: 16px;
+    }
+  }
+}
+
+@include breakPoints(md) {
+  header {
+    width: calc(100% - 100px);
+    .dropmenu {
+      display: block;
+    }
+    .navlinks {
+      display: none;
+    }
+  }
+}
+
+main {
+  position: relative;
+  z-index: -1;
+  background-image: url(../imgs/main/main1.png);
+  background-size: cover;
+  width: calc(100% - 200px);
+  height: 100vh;
+  font-weight: bold;
+  div {
+    @include center("y");
+    color: $red-color;
+    font-size: 35px;
+    width: 50%;
+    text-align: justify;
+    span {
+      color: $green-color;
+    }
+  }
+}
+
+@include breakPoints(lg) {
+  main {
+    width: calc(100% - 150px);
+    div {
+      font-size: 30px;
+    }
+  }
+}
+
+@include breakPoints(md) {
+  main {
+    width: calc(100% - 100px);
+    div {
+      font-size: 27px;
+      text-align: center;
+    }
+  }
+}
+
+@include breakPoints(sm) {
+  main div {
+    font-size: 23px;
+    width: 45%;
+  }
+}
+
+.about {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  margin: 50px 0;
+  .img {
+    width: 50%;
+    text-align: center;
+    position: relative;
+    z-index: -1;
+    img {
+      width: 95%;
+    }
+  }
+  .img::before {
+    content: "";
+    background-color: $gold-color;
+    width: 80px;
+    left: -15px;
+    @include center(y);
+    z-index: -1;
+    height: calc(100% + 40px);
+  }
+
+  .content {
+    width: 50%;
+    .head {
+      color: $green-color;
+      font-size: 28px;
+    }
+    .text {
+      font-size: 22px;
+      text-align: justify;
+      padding-bottom: 20px;
+      span {
+        color: $red-color;
+      }
+    }
+  }
+}
+
+@include breakPoints(lg) {
+  .about .content {
+    .head {
+      font-size: 25px;
+    }
+    .text {
+      font-size: 20px;
+    }
+  }
+}
+
+@include breakPoints(md) {
+  .about {
+    display: block;
+    .content {
+      width: 100%;
+      .head {
+        font-size: 22px;
+      }
+      .text {
+        font-size: 18px;
+      }
+    }
+    .img {
+      width: 100%;
+      margin: 20px 0;
+    }
+    .img::before {
+      width: calc(100%);
+      height: calc(100% + 20px);
+      left: 0;
+      top: calc(50% - 3.5px);
+      img {
+        @include center(both);
+      }
+    }
+  }
+}
+
+@include breakPoints(sm) {
+  .about {
+    .content {
+      .head {
+        padding: 20px 0;
+        font-size: 20px;
+      }
+      .text {
+        font-size: 16px;
+      }
+    }
+  }
+}
+
+//- menu
+.menushow {
+  background-color: #eee;
+  overflow: hidden;
+  padding-right: 0;
+  padding-left: 0;
+  .head {
+    color: $green-color;
+    text-align: center;
+  }
+  ul {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+    padding: 0 0 30px;
+    li.active {
+      background-color: $red-color;
+    }
+  }
+  .type {
+    display: grid;
+    grid-template-columns: repeat(5, 100%);
+    @include time;
+    .cards {
+      display: grid;
+      gap: 20px;
+      align-items: center;
+      justify-content: center;
+      grid-template-columns: repeat(3, 250px);
+      .card {
+        background-color: #fff;
+        border-radius: 15px;
+        .img {
+          height: 250px;
+          text-align: center;
+          img {
+            width: 80%;
+            height: 100%;
+          }
+        }
+        .text {
+          margin: 10px;
+          height: 170px;
+          text-align: center;
+          h2 {
+            color: $green-color;
+            font-weight: bold;
+            font-size: 20px;
+            height: 50px;
+          }
+          .des {
+            font-size: 16px;
+            height: 50px;
+          }
+          .price {
+            font-weight: bold;
+            padding: 20px 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+@include breakPoints(lg) {
+  .menushow {
+    .type .cards {
+      grid-template-columns: repeat(2, 250px);
+    }
+  }
+}
+@include breakPoints(sm) {
+  .menushow {
+    ul li {
+      font-size: 14px;
+    }
+    .type .cards {
+      grid-template-columns: repeat(1, 250px);
+    }
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "name": "armonia-italia",
+  "version": "1.0.0",
+  "description": "",
+  "main": "gulpfile.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Abdul-Rahman-Ahmed/Armonia-Italia.git"
+  },
+  "author": "Abdul-Rahman-Ahmed",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Abdul-Rahman-Ahmed/Armonia-Italia/issues"
+  },
+  "homepage": "https://github.com/Abdul-Rahman-Ahmed/Armonia-Italia#readme",
+  "devDependencies": {
+    "gulp": "^5.0.0",
+    "gulp-autoprefixer": "^9.0.0",
+    "gulp-connect": "^5.7.0",
+    "gulp-notify": "^4.0.0",
+    "gulp-pug": "^5.0.0",
+    "gulp-sass": "^5.1.0",
+    "gulp-sourcemaps": "^3.0.0",
+    "sass": "^1.77.6"
+  }
