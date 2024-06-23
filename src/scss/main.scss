@@ -41,6 +41,12 @@ ul {
   @include time;
 }
 
+h2.head {
+  color: $green-color;
+  font-size: 28px;
+  padding: 20px 0;
+}
+
 @include breakPoints(lg) {
   .container {
     padding: 0 75px;
@@ -196,13 +202,6 @@ main {
   }
 }
 
-// @include breakPoints(sm) {
-//   main div {
-//     font-size: 23px;
-//     width: 45%;
-//   }
-// }
-
 @include breakPoints(sm) {
   main {
     background-image: url(../imgs/main/small.png);
@@ -240,10 +239,6 @@ main {
 
   .content {
     width: 50%;
-    .head {
-      color: $green-color;
-      font-size: 28px;
-    }
     .text {
       font-size: 22px;
       text-align: justify;
@@ -298,7 +293,6 @@ main {
   .about {
     .content {
       .head {
-        padding: 20px 0;
         font-size: 20px;
       }
       .text {
@@ -313,7 +307,6 @@ main {
   background-color: #eee;
   overflow: hidden;
   .head {
-    color: $green-color;
     text-align: center;
   }
   ul {
@@ -322,7 +315,6 @@ main {
     gap: 20px;
     align-items: center;
     justify-content: center;
-    padding: 0 0 30px;
     li.active {
       background-color: $red-color;
     }
@@ -333,6 +325,7 @@ main {
     @include time;
     .cards {
       display: grid;
+      padding: 20px 0;
       gap: 20px;
       align-items: center;
       justify-content: center;
@@ -387,5 +380,15 @@ main {
     .type .cards {
       grid-template-columns: repeat(1, 250px);
     }
+  }
+}
+
+.booking {
+  text-align: center;
+  height: 250px;
+  background-image: url(../imgs/booking.png);
+  background-size: cover;
+  p {
+    color: #fff;
   }
 }

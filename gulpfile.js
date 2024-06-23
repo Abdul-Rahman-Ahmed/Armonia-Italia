@@ -45,14 +45,16 @@ task("css", () => {
 });
 task("js", () => {
   return src("src/js/*.js")
+    .pipe(map.init())
     .pipe(uglify())
     .pipe(concat("main.js"))
+    .pipe(map.write("."))
     .pipe(dest("dist/js"))
     .pipe(notify({ message: "JS Task Is Successful", onLast: true }))
     .pipe(connect.reload());
 });
 
-watch("src/pug/index.pug", series("html"));
+watch("src/**/*.pug", series("html"));
 watch("src/**/**.scss", series("css"));
 watch("src/js/*.js", series("js"));
 task("default", series("connect"));
