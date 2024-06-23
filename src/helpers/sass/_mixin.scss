@@ -1,5 +1,9 @@
 @mixin breakPoints($size) {
-  @if $size == "sm" {
+  @if $size == "s" {
+    @media (max-width: 376px) {
+      @content;
+    }
+  } @else if $size == "sm" {
     @media (max-width: 576px) {
       @content;
     }

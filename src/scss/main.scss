@@ -203,6 +203,19 @@ main {
   }
 }
 
+@include breakPoints(s) {
+  main {
+    background-image: url(../imgs/main/small.png);
+    div {
+      @include center("both");
+      color: $red-color;
+      width: 100%;
+      span {
+        color: $green-color;
+      }
+    }
+  }
+}
 .about {
   display: flex;
   align-items: center;
@@ -302,14 +315,13 @@ main {
 .menushow {
   background-color: #eee;
   overflow: hidden;
-  padding-right: 0;
-  padding-left: 0;
   .head {
     color: $green-color;
     text-align: center;
   }
   ul {
     display: flex;
+    flex-wrap: wrap;
     gap: 20px;
     align-items: center;
     justify-content: center;

@@ -6,6 +6,8 @@ import map from "gulp-sourcemaps";
 import * as dartSass from "sass";
 import gulpSass from "gulp-sass";
 import prefixer from "gulp-autoprefixer";
+import uglify from "gulp-uglify";
+import concat from "gulp-concat";
 
 const sass = gulpSass(dartSass);
 
@@ -41,8 +43,16 @@ task("css", () => {
     .pipe(notify({ message: "CSS Task Is Successful", onLast: true }))
     .pipe(connect.reload());
 });
+task("js", () => {
+  return src("src/js/*.js")
+    .pipe(uglify())
+    .pipe(concat("main.js"))
+    .pipe(dest("dist/js"))
+    .pipe(notify({ message: "JS Task Is Successful", onLast: true }))
+    .pipe(connect.reload());
+});
 
 watch("src/pug/index.pug", series("html"));
-watch("src/scss/main.scss", series("css"));
-
+watch("src/**/**.scss", series("css"));
+watch("src/js/*.js", series("js"));
 task("default", series("connect"));
