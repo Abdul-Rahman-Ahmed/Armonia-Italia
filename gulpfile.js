@@ -8,7 +8,6 @@ import gulpSass from "gulp-sass";
 import prefixer from "gulp-autoprefixer";
 import uglify from "gulp-uglify";
 import concat from "gulp-concat";
-import git from "gulp-gh-pages";
 
 const sass = gulpSass(dartSass);
 
@@ -53,18 +52,7 @@ task("js", () => {
     .pipe(connect.reload());
 });
 
-task("deploy", function () {
-  return src("./dist/**/*").pipe(
-    git({
-      repository: "https://github.com/Abdul-Rahman-Ahmed/Armonia-Italia",
-      branch: "main",
-      message: "Automated deployment to GitHub Pages",
-    })
-  );
-});
-
 watch("src/pug/index.pug", series("html"));
 watch("src/**/**.scss", series("css"));
 watch("src/js/*.js", series("js"));
-watch("**/*", series("deploy"));
 task("default", series("connect"));
