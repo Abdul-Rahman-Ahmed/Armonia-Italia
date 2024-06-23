@@ -210,9 +210,6 @@ main {
       @include center("both");
       color: $red-color;
       width: 100%;
-      span {
-        color: $green-color;
-      }
     }
   }
 }
