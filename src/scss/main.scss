@@ -51,11 +51,23 @@ h2.head {
   .container {
     padding: 0 75px;
   }
+  .head {
+    font-size: 25px;
+  }
 }
 
 @include breakPoints(md) {
   .container {
     padding: 0 50px;
+  }
+  h2.head {
+    font-size: 22px;
+  }
+}
+
+@include breakPoints(sm) {
+  .head {
+    font-size: 20px;
   }
 }
 
