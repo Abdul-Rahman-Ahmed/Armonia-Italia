@@ -482,3 +482,64 @@ main {
     }
   }
 }
+
+// Footer Styling
+.footer {
+  background-color: #333;
+  color: #fff;
+  font-size: 14px;
+
+  .cont {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .footer-sections {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    .footer-section {
+      flex: 1;
+      min-width: 200px;
+      margin: 20px;
+      h3 {
+        font-size: 18px;
+      }
+      p {
+        line-height: 1.5;
+      }
+      ul {
+        li {
+          margin-bottom: 10px;
+          a {
+            color: #fff;
+            text-decoration: none;
+            @include time();
+            &:hover {
+              color: $green-color;
+              @include time();
+            }
+          }
+        }
+      }
+      .social-media {
+        li {
+          margin-right: 10px;
+          a {
+            color: #fff;
+            font-size: 18px;
+          }
+        }
+      }
+    }
+  }
+  .footer-bottom {
+    text-align: center;
+    border-top: 1px solid #444;
+    padding-top: 20px;
+    width: 100%;
+    p {
+      margin: 0;
+    }
+  }
+}
