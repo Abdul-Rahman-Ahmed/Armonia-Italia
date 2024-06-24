@@ -1,0 +1,17 @@
+.galary.container
+  +heading("المعرض")
+  .galary-container
+    - for(let i= 1; i <= 2; i++)
+      .img
+        img(src="./imgs/galary/chef" + i + ".png")
+        h2 Our Chef
+      .img
+        img(src="./imgs/galary/food" + i + ".png")
+        h2 Our Food
+      .img
+        img(src="./imgs/galary/kitchen" + i + ".png")
+        h2 Our Kitchen
+      .img
+        img(src="./imgs/galary/rest" + i + ".png")
+        h2 Our Resturant
+  a.button للمزيد

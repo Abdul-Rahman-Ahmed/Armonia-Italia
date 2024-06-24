@@ -26,7 +26,7 @@ task("jenkins-tests", () => {
 });
 
 task("html", () => {
-  return src("src/pug/index.pug")
+  return src("src/index.pug")
     .pipe(pug())
     .pipe(dest("dist"))
     .pipe(notify({ message: "HTML Task Is Successful", onLast: true }))
@@ -34,7 +34,7 @@ task("html", () => {
 });
 
 task("css", () => {
-  return src("src/scss/main.scss")
+  return src("src/main.scss")
     .pipe(map.init())
     .pipe(sass({ outputStyle: "compressed" }).on("error", sass.logError))
     .pipe(prefixer("last 2 versions"))
