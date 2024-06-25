@@ -320,6 +320,7 @@ main {
   background-color: #eee;
   overflow: hidden;
   padding: 50px 0;
+  text-align: center;
   .head {
     text-align: center;
   }
@@ -386,6 +387,7 @@ main {
     }
   }
 }
+
 @include breakPoints(sm) {
   .menushow {
     ul li {
@@ -434,6 +436,7 @@ main {
         color: #fff;
         @include time();
         overflow: hidden;
+        user-select: none;
       }
     }
     .img:hover h2 {
@@ -540,6 +543,69 @@ main {
     width: 100%;
     p {
       margin: 0;
+    }
+  }
+}
+
+.testimonials {
+  background-color: #eee;
+  .head {
+    text-align: center;
+  }
+  .cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    .card {
+      position: relative;
+      width: 250px;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      .person-info {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        margin-bottom: 10px;
+        .img {
+          width: 50%;
+          height: 180px;
+          img {
+            width: 100%;
+            height: 100%;
+          }
+        }
+        h2 {
+          color: $red-color;
+          text-align: center;
+          padding: 0;
+        }
+      }
+      .content {
+        font-style: italic;
+        line-height: 1.6;
+        text-align: justify;
+      }
+    }
+    .card::before {
+      content: ",,";
+      font-weight: bold;
+      font-size: 150px;
+      position: absolute;
+      bottom: -65px;
+      right: -25px;
+      color: $green-color;
+    }
+    .card::after {
+      content: ",,";
+      position: absolute;
+      left: -25px;
+      top: -60px;
+      transform: rotate(180deg);
+      font-size: 150px;
+      font-weight: bold;
+      color: $gold-color;
     }
   }
 }

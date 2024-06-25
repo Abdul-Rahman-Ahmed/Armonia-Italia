@@ -26,11 +26,18 @@ task("jenkins-tests", () => {
 });
 
 task("html", () => {
-  return src("src/index.pug")
-    .pipe(pug())
-    .pipe(dest("dist"))
-    .pipe(notify({ message: "HTML Task Is Successful", onLast: true }))
-    .pipe(connect.reload());
+  return (
+    src("src/index.pug")
+      .pipe(pug())
+      .pipe(dest("dist"))
+      .pipe(notify({ message: "HTML Task Is Successful", onLast: true }))
+      .pipe(connect.reload()),
+    src("src/pages/*.pug")
+      .pipe(pug())
+      .pipe(dest("dist/pages"))
+      .pipe(notify({ message: "HTML Pages Task Is Sucessful", onLast: true }))
+      .pipe(connect.reload())
+  );
 });
 
 task("css", () => {
