@@ -1,0 +1,9 @@
+include ../helpers/pug/mixins.pug
+doctype html
+html(lang="ar" dir="rtl")  
+  +head("Menu")
+  body
+    include ../components/header.pug
+    +menu(100)
+    include ../components/footer.pug
+  script(src="/js/main.js")

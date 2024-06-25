@@ -1,11 +1,81 @@
+include ./variables.pug
 mixin heading (text)
   h2.head - #{text} -
 
 mixin links (classname)
   ul(class= `${classname}`)
-    li: a(href= "./") الرئيسية
-    li: a(href= "./pages/menu.html") القائمة
-    li: a(href= "./pages/booking.html") الحجز
-    li: a(href= "./pages/galary.html") المعرض
-    li: a(href= "./pages/contact-us.html") اتصل بنا
-    li: a(href= "./pages/about.html") عن الموقع
+    li: a(href= "/") الرئيسية
+    li: a(href= "/pages/menu.html") القائمة
+    li: a(href= "/pages/booking.html") الحجز
+    li: a(href= "/pages/galary.html") المعرض
+    li: a(href= "/pages/contact-us.html") اتصل بنا
+    li: a(href= "/pages/about.html") عن الموقع
+
+mixin head (title)
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    link(rel="stylesheet", href="/css/main.css")
+    link(rel="stylesheet", href="/css/all.min.css")
+    link(rel="preconnect", href="https://fonts.googleapis.com")
+    link(rel="preconnect", href="https://fonts.gstatic.com" crossorigin)
+    link(rel="stylesheet", href="https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700;800;900&display=swap")
+    link(rel="shortcut icon", href="/imgs/logo.png", type="image/x-icon")
+    title #{title}
+
+mixin menu (num)
+  .menushow
+    +heading("القائمة")
+    ul
+      li.button.active المقبلات
+      li.button الأطباق الرئيسية
+      li.button البيتزا
+      li.button الحلويات
+        li.button المشروبات
+    .type
+      .cards
+        each one, index in appetizers
+          if index <= num
+            .card
+              .img: img(src= one.src)
+              .text
+                h2= one.name
+                .des= one.des
+                .price= one.price
+      .cards
+        each one, index in main 
+          if index <= num
+          .card
+            .img: img(src= one.src)
+            .text
+              h2= one.name
+              .des= one.des
+              .price= one.price
+      .cards
+        each one, index in pizza 
+          if index <= num
+          .card
+            .img: img(src= one.src)
+            .text
+              h2= one.name
+              .des= one.des
+              .price= one.price
+      .cards
+        each one, index in deserts 
+          if index <= num
+          .card
+            .img: img(src= one.src)
+            .text
+              h2= one.name
+              .des= one.des
+              .price= one.price
+      .cards
+        each one, index in drinks 
+          if index <= num
+          .card
+            .img: img(src= one.src)
+            .text
+              h2= one.name
+              .des= one.des
+              .price= one.price
+    a.button للمزيد
