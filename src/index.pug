@@ -1,9 +1,10 @@
 include ./helpers/pug/mixins.pug
 doctype html
 html(lang="ar" dir="rtl")  
-  +head("Armonia Italia")
+  +head("Armonia Italia", mainPath)
   body
-    include ./components/header.pug
+    header.container
+      +header(mainPath)
     main.container
       div مرحباً بكم في مطعمنا الإيطالي، حيث يجمع <span>التقاليد الإيطالية الأصيلة</span> مع الطهي الحديث لتقديم تجربة لا تُنسى لمحبي المأكولات الإيطالية.
     .about.container
@@ -11,7 +12,7 @@ html(lang="ar" dir="rtl")
         +heading("نبذة")
         .text يتميز مطعمنا بأجوائه الدافئة والأنيقة، حيث يقدم تشكيلة متنوعة من الأطباق الإيطالية الشهية بتوقيع شيف مخضرم وفريقه المحترف. تأسس المطعم في عام <span>2002</span> وسرعان ما أصبح وجهة محبوبة لعشاق الطعام في المنطقة.
         .button للمزيد
-      .img: img(src="./imgs/about.jpg")
+      .img: img(src= mainPath + "/imgs/about.jpg")
     include ./components/menu.pug
     include ./components/booking.pug
     include ./components/galary.pug

@@ -2,25 +2,35 @@ include ./variables.pug
 mixin heading (text)
   h2.head - #{text} -
 
-mixin links (classname)
-  ul(class= `${classname}`)
-    li: a(href= "/") الرئيسية
-    li: a(href= "/pages/menu.html") القائمة
-    li: a(href= "/pages/booking.html") الحجز
-    li: a(href= "/pages/galary.html") المعرض
-    li: a(href= "/pages/contact-us.html") اتصل بنا
-    li: a(href= "/pages/about.html") عن الموقع
+mixin links (path)
+  li: a(href= path + "/") الرئيسية
+  li: a(href= path + "/pages/menu.html") القائمة
+  li: a(href= path + "/pages/booking.html") الحجز
+  li: a(href= path + "/pages/galary.html") المعرض
+  li: a(href= path + "/pages/contact-us.html") اتصل بنا
+  li: a(href= path + "/pages/about.html") عن الموقع
 
-mixin head (title)
+mixin header (path) 
+  .logo: a(href= path + "/"): img(src= path + "/imgs/logo.png")
+  .dropmenu: a: i(class="fa-solid fa-bars")
+  .overlay
+    .close: div X
+    ul.menu
+      +links(path)
+  ul.navlinks
+    +links(path)
+
+
+mixin head (title, path)
   head
     meta(charset="UTF-8")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
-    link(rel="stylesheet", href="/css/main.css")
-    link(rel="stylesheet", href="/css/all.min.css")
+    link(rel="stylesheet", href= path + "/css/main.css")
+    link(rel="stylesheet", href= path + "/css/all.min.css")
     link(rel="preconnect", href="https://fonts.googleapis.com")
     link(rel="preconnect", href="https://fonts.gstatic.com" crossorigin)
     link(rel="stylesheet", href="https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700;800;900&display=swap")
-    link(rel="shortcut icon", href="/imgs/logo.png", type="image/x-icon")
+    link(rel="shortcut icon", href= path + "/imgs/logo.png", type="image/x-icon")
     title #{title}
 
 mixin menu (num)
@@ -31,7 +41,7 @@ mixin menu (num)
       li.button الأطباق الرئيسية
       li.button البيتزا
       li.button الحلويات
-        li.button المشروبات
+      li.button المشروبات
     .type
       .cards
         each one, index in appetizers

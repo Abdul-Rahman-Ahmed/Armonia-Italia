@@ -1,9 +1,10 @@
 include ../helpers/pug/mixins.pug
 doctype html
 html(lang="ar" dir="rtl")  
-  +head("Menu")
+  +head("Menu", mainPath + mainPath)
   body
-    include ../components/header.pug
+    header.container
+      +header(mainPath + mainPath)
     +menu(100)
     include ../components/footer.pug
   script(src="/js/main.js")
